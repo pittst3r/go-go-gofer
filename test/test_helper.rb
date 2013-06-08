@@ -14,8 +14,8 @@ Capybara.default_driver = :poltergeist
 class FeatureTest < MiniTest::Spec
   include Rails.application.routes.url_helpers
   include Capybara::DSL
-  Rpitts::Application.load_tasks
-  register_spec_type(/feature$/, self)
+  Gofer::Application.load_tasks
+  register_spec_type(//, self)
     
   before do
     Rake::Task["db:seed"].tap(&:reenable).invoke
@@ -25,7 +25,7 @@ class FeatureTest < MiniTest::Spec
   end
 end
 
-Turn.config.format = :outline
+# Turn.config.format = :outline
 
 class String
   def title_case
