@@ -4,11 +4,12 @@ gem 'rails', '3.2.13'
 
 gem 'haml-rails'
 gem 'hashie'
-gem 'jquery-rails', '~> 2.0.0'
+gem 'jquery-rails'
 gem 'sass-rails'
 gem 'sorcery'
 gem 'tumblr_client'
-gem 'uglifier', '>= 1.0.3'
+gem 'twitter-bootstrap-rails'
+gem 'uglifier'
 
 group :development do
   gem 'debugger'

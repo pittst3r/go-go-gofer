@@ -13,6 +13,7 @@ describe "User Session" do
     fill_in "email", "test@example.com"
     fill_in "password", "password"
     click_button "Log In"
+    page.text.must_include "Log Out"
   end
   
   it "logs out user" do
