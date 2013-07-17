@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
+
 gem 'rails', '3.2.13'
 
 gem 'coffee-script'
@@ -10,6 +12,10 @@ gem 'sass-rails'
 gem 'sorcery'
 gem 'state_machine'
 gem 'uglifier'
+
+group :production do
+  'pg'
+end
 
 group :development do
   gem 'debugger'
