@@ -101,10 +101,10 @@ $(function() {
             $(this).remove();
             $dashboardGoferRun.find(".order").slideUp(100, function() {
               $(this).remove();
-              var $placeholder = $("<div class='order placeholder'><p>No current gofer run</p></div>").hide();
-              $dashboardGoferRun.append($placeholder);
-              $placeholder.fadeIn(100);
             });
+            var $placeholder = $("<div class='order placeholder'><p>No current gofer run</p></div>").hide();
+            $dashboardGoferRun.append($placeholder);
+            $placeholder.fadeIn(100);
           });
         }
       });
