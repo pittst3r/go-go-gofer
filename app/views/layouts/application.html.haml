@@ -1,9 +1,11 @@
 !!! 5
-%html(lang="en")
+%html{ lang: "en" }
   %head
-    %meta(charset="utf-8")
+    %meta{ charset: "utf-8" }
     
     %title= content_for?(:title) ? yield(:title) : "Gofer"
+    
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     
     = csrf_meta_tags
     = stylesheet_link_tag "http://fast.fonts.com/cssapi/91ad6674-bdec-48e5-81b8-41b300a00874.css", media: "all"

@@ -12,5 +12,6 @@
  *= require shared
  *= require layout
  *= require dashboard
+ *= require mobile
  *= require_self
  */

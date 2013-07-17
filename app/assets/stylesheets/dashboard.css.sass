@@ -1,6 +1,7 @@
 @import "variables"
 
 section.dashboard-pane
+  width: 300px
   h2
     margin: 0 0 20px
     font-size: 16px
@@ -10,7 +11,6 @@ section.dashboard-pane
     cursor: default
 section#orders
   float: left
-  width: 300px
   .order
     position: relative
     margin: 10px 0
@@ -102,7 +102,6 @@ section#orders
           border-color: $medium-grey
 section#your-gofer-run
   float: right
-  width: 300px
   .order
     padding: 10px 0
     cursor: default
@@ -149,7 +148,7 @@ section#your-gofer-run
       line-height: 1em
       border: 2px solid $medium-grey
       cursor: pointer
-      transition: all 0.2s ease-in-out
+      transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out
       &:first-of-type
         margin: 0
         border-radius: $radius 0 0 $radius

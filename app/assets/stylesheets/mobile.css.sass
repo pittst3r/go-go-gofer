@@ -1,0 +1,51 @@
+@import "variables"
+
+@media (max-width: 767px)
+  
+  header
+    width: 100%
+    margin: 0
+    border-radius: 0
+    h1
+      background-position: 10px 50%
+    a.log-in-out
+      opacity: 1
+      right: 10px
+  
+  section#content
+    width: auto
+    margin: 0
+    padding: 0 10px
+  
+  section.dashboard-pane
+    width: 100%
+    margin: 0
+    h2
+      width: 100%
+      margin: 20px 0 0 -10px
+      padding: 0 10px 5px
+      border-bottom: 2px solid $medium-grey
+      color: $dark-grey
+      text-align: center
+  
+  section#your-gofer-run
+    #controls
+      width: 100%
+      button
+        width: 49%
+        padding: 10px 5px 9px
+        &:first-of-type
+          float: left
+          margin: 0
+          border-radius: $radius
+        &:last-of-type
+          float: right
+          margin: 0
+          border-radius: $radius
+    .order
+      &.placeholder
+        margin-top: 10px
+  
+  section#orders
+    
+  

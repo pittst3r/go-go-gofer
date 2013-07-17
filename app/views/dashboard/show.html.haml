@@ -1,3 +1,12 @@
+%section#your-gofer-run.dashboard-pane
+  %h2 Your Gofer Run
+  - if @gofer_run
+    = render partial: "orders/order_ticket", collection: @gofer_run.orders.by_updated_at
+    = render partial: "controls", locals: { gofer_run: @gofer_run }
+  - else
+    .order.placeholder
+      %p No current gofer run
+
 %section#orders.dashboard-pane
   %h2 Orders
   .order.new
@@ -7,12 +16,3 @@
       = f.text_field :description
       = f.submit "Go"
   = render partial: "orders/order_ticket", collection: @orders
-  
-%section#your-gofer-run.dashboard-pane
-  %h2 Your Gofer Run
-  - if @gofer_run
-    = render partial: "orders/order_ticket", collection: @gofer_run.orders.by_updated_at
-    = render partial: "controls", locals: { gofer_run: @gofer_run }
-  - else
-    .order.placeholder
-      %p No current gofer run
