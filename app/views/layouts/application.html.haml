@@ -13,11 +13,16 @@
       
     = javascript_include_tag "application"
     = stylesheet_link_tag "application", media: "all"
+    = yield :asset_includes
 
 
   %body
     %header
       %h1 Go Go Gofer
+      - if current_user
+        = link_to "Log Out", log_out_path, class: "log-in-out"
+      - else
+        = link_to "Log In", log_in_path, class: "log-in-out"
 
     %section#content
       = yield

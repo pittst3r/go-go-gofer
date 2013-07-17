@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  before_filter :require_login
   
   def show
     @orders = Order.includes(:user).unaccepted.order("created_at DESC").all

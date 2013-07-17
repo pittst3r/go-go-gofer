@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
     params[:controller] ? params[:controller].singularize : nil
   end
   
+  protected
+  
+  def not_authenticated
+    redirect_to log_in_path, :alert => "Please login first."
+  end
+  
 end

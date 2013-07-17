@@ -14,7 +14,7 @@ Gofer::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -34,4 +34,18 @@ Gofer::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  
+  config.action_mailer.delivery_method = :smtp
+  
+  config.action_mailer.default_url_options = { host: "lvh.me", port: 3000 }
+  
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 587,
+    :user_name => "robbie@sweatypitts.com",
+    :password  => "vrum1aIZhL3q1_gwgKEZ5Q",
+    :authentication => 'login'
+  }
+  
 end

@@ -1,3 +1,36 @@
-// Place all the styles related to the UserSessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables"
+
+form.user-sessions
+  width: 300px
+  margin: 0 auto
+  h1
+    text-align: center
+  input[type="text"], input[type="email"], input[type="password"]
+    box-sizing: border-box
+    outline: none
+    width: 100%
+    margin: 0
+    padding: 5px
+    border: 2px solid $medium-grey
+    border-radius: $radius
+    font-family: $avenir-regular-family
+    font-size: 14px
+    line-height: 1em
+    color: $copy-grey
+  input[type="submit"]
+    -webkit-appearance: none
+    box-sizing: border-box
+    cursor: pointer
+    width: 100%
+    margin: 0
+    padding: 8px 5px 7px
+    background-color: $orange
+    color: white
+    font-family: $avenir-bold-family
+    font-size: 15px
+    line-height: 1em
+    text-transform: uppercase
+    border: none
+    border-radius: $radius
+    &:hover
+      background-color: darken($orange, 5%)

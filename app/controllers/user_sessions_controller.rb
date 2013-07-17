@@ -1,5 +1,9 @@
 class UserSessionsController < ApplicationController
   
+  def new
+    redirect_to dashboard_path if current_user
+  end
+  
   def create
     if @user = login(params[:username], params[:password])
       redirect_back_or_to root_url, :notice => 'Login successful.'

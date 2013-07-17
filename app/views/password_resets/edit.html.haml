@@ -1,0 +1,9 @@
+- content_for :asset_includes do
+  = stylesheet_link_tag "user_sessions", media: "all"
+
+= form_for @user, :url => password_reset_url(@user), :html => { method: :put, class: "user-sessions" } do |f|
+  = hidden_field_tag :token, @token
+  %h1 Make Your New Password
+  %p= f.password_field :password, placeholder: 'New Password'
+  %p= f.password_field :password_confirmation, placeholder: 'Confirm New Password'
+  %p= submit_tag "Reset Password"

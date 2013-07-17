@@ -17,6 +17,7 @@ section#orders
     border: 2px solid $medium-grey
     border-radius: $radius
     cursor: pointer
+    transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out
     a[data-delete]
       display: none
       position: absolute
@@ -53,6 +54,7 @@ section#orders
         margin: 0
         color: $xlight-copy-grey
         font-family: $avenir-bold-family
+        transition: all 0.2s ease-in-out
       form
         display: none
         margin: 10px 0 0
@@ -146,6 +148,7 @@ section#your-gofer-run
       line-height: 1em
       border: 2px solid $medium-grey
       cursor: pointer
+      transition: all 0.2s ease-in-out
       &:first-of-type
         margin: 0
         border-radius: $radius 0 0 $radius
