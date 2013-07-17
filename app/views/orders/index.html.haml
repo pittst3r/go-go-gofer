@@ -1,0 +1,11 @@
+%h1 Orders
+= form_for GoferRun.new do |f|
+  - @orders.each do |r|
+    %p
+      %label
+        - disabled = r.gofer_run_id ? true : false
+        = check_box_tag "orders[]", r.id, false, disabled: disabled
+        = r.description
+        = "(#{r.user.email})"
+        = link_to "delete", order_path(r), method: :delete
+  = f.submit "Add to Gofer Run", class: "btn btn-mini"

@@ -1,0 +1,13 @@
+$("#orders.dashboard-pane .order").fadeOut(200, function() {
+  if ( !$(this).hasClass("new") ) {
+    $(this).remove();
+  } else {
+    $(this).fadeIn(200);
+  }
+});
+<% @orders.each do |order| %>
+  var $order = $("<%= raw(escape_javascript(render partial: 'orders/order_ticket', locals: { order_ticket: order })) %>");
+  $order.hide();
+  $("#orders.dashboard-pane").append($order);
+  $order.slideDown(100);
+<% end %>

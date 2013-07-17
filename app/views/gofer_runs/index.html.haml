@@ -1,0 +1,9 @@
+%h1 Gofer Runs
+
+%ul
+  - @gofer_runs.each do |run|
+    %li
+      = link_to Time.zone.utc_to_local(run.created_at).strftime("%-m/%e/%y %l:%M%P"), run
+      %ul
+        - run.orders.each do |req|
+          %li= req.description

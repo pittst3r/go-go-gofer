@@ -16,11 +16,12 @@ class FeatureTest < MiniTest::Spec
   include Capybara::DSL
   Gofer::Application.load_tasks
   register_spec_type(//, self)
-    
+  
   before do
     Rake::Task["db:seed"].tap(&:reenable).invoke
   end
   after do
+    Capybara.reset_sessions!
     DatabaseCleaner.clean
   end
 end

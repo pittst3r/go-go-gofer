@@ -1,0 +1,18 @@
+%section#orders.dashboard-pane
+  %h2 Orders
+  .order.new
+    %h3 New Order
+    = form_for Order.new(user_id: current_user.id), remote: true do |f|
+      = f.hidden_field :user_id
+      = f.text_field :description
+      = f.submit "Go"
+  = render partial: "orders/order_ticket", collection: @orders
+  
+%section#your-gofer-run.dashboard-pane
+  %h2 Your Gofer Run
+  - if @gofer_run
+    = render partial: "orders/order_ticket", collection: @gofer_run.orders.by_updated_at
+    = render partial: "controls", locals: { gofer_run: @gofer_run }
+  - else
+    .order.placeholder
+      %p No current gofer run

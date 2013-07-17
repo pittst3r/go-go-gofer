@@ -1,0 +1,11 @@
+$(".placeholder").fadeOut(200);
+$(".placeholder").remove();
+var $order = $("<%= raw(escape_javascript(render partial: 'order_ticket', locals: { order_ticket: @order } )) %>")
+$order.hide();
+$("#your-gofer-run h2").after($order);
+$order.slideDown(100);
+if ( $("#controls").length == 0 ) {
+  var $controls = $("<%= raw(escape_javascript(render partial: 'dashboard/controls', locals: { gofer_run: @gofer_run })) %>").hide();
+  $("#your-gofer-run").append($controls);
+  $controls.slideDown(100);
+}

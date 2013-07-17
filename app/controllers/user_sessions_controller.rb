@@ -1,0 +1,17 @@
+class UserSessionsController < ApplicationController
+  
+  def create
+    if @user = login(params[:username], params[:password])
+      redirect_back_or_to root_url, :notice => 'Login successful.'
+    else
+      flash.now[:alert] = "Login failed."
+      render action: :new
+    end
+  end
+  
+  def destroy
+    logout
+    redirect_back_or_to root_url, :notice => 'Logout successful.'
+  end
+  
+end

@@ -1,0 +1,8 @@
+.order{ data: { id: order_ticket.id } }
+  - unless order_ticket.gofer_run
+    = link_to "delete", order_path(order_ticket), method: :delete, data: { delete: "" }
+  - if order_ticket.gofer_run
+    %h3= order_ticket.description
+  - else
+    %h3= truncate(order_ticket.description, length: 25, omission: "...")
+  %p= "#{order_ticket.user.name} @ #{Time.zone.utc_to_local(order_ticket.created_at).strftime("%l:%M%P")}"

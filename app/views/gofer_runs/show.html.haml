@@ -1,0 +1,7 @@
+%h1 Gofer Run
+
+%p= link_to "delete", gofer_run_path(@gofer_run), method: :delete
+
+%ul
+  - @gofer_run.orders.each do |order|
+    %li= order.description

@@ -7,7 +7,7 @@ describe "Gofer" do
     skip
   end
   
-  it "assigns request(s) to gofer" do
+  it "assigns order(s) to gofer" do
     skip
   end
   

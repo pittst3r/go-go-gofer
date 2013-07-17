@@ -1,0 +1,7 @@
+%h1 New Order
+= form_for @order do |f|
+  = f.hidden_field :user_id
+  %p
+    = f.label :description
+    = f.text_field :description, placeholder: 'e.g. medium americano'
+  %p= f.submit "Submit Order", class: "btn"

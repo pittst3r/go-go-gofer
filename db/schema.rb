@@ -11,10 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130608225338) do
+ActiveRecord::Schema.define(:version => 20130707231313) do
+
+  create_table "gofer_runs", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "state"
+    t.integer  "organization_id"
+  end
+
+  create_table "orders", :force => true do |t|
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "gofer_run_id"
+    t.integer  "organization_id"
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "organizations_users", :id => false, :force => true do |t|
+    t.integer "organization_id"
+    t.integer "user_id"
+  end
 
   create_table "users", :force => true do |t|
-    t.string   "username",                        :null => false
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
@@ -25,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20130608225338) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.string   "name"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"

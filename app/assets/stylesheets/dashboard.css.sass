@@ -1,0 +1,157 @@
+@import "variables"
+
+section.dashboard-pane
+  h2
+    margin: 0 0 20px
+    font-size: 16px
+    line-height: 1em
+    text-align: center
+    cursor: default
+section#orders
+  float: left
+  width: 300px
+  .order
+    position: relative
+    margin: 10px 0
+    padding: 10px
+    border: 2px solid $medium-grey
+    border-radius: $radius
+    cursor: pointer
+    a[data-delete]
+      display: none
+      position: absolute
+      right: 10px
+      font-size: 12px
+      color: $xlight-copy-grey
+      text-decoration: none
+      &:hover
+        color: $copy-grey
+    h3
+      margin: 0 0 5px
+      padding: 0
+      line-height: 1em
+      font-family: $avenir-regular-family
+      font-size: 14px
+    p
+      margin: 0
+      padding: 0
+      line-height: 1em
+      font-size: 12px
+      color: $dark-grey
+    &:hover
+      border-color: $dark-grey
+      a[data-delete]
+        display: block
+      h3
+        color: black
+    &.active
+      border-color: $orange
+      h3
+        color: black
+    &.new
+      h3
+        margin: 0
+        color: $xlight-copy-grey
+        font-family: $avenir-bold-family
+      form
+        display: none
+        margin: 10px 0 0
+        input[type="text"]
+          box-sizing: border-box
+          outline: none
+          width: 81%
+          margin: 0
+          padding: 5px
+          border: 2px solid $medium-grey
+          border-radius: $radius
+          font-family: $avenir-regular-family
+          font-size: 14px
+          line-height: 1em
+          color: $copy-grey
+        input[type="submit"]
+          -webkit-appearance: none
+          float: right
+          box-sizing: border-box
+          cursor: pointer
+          width: 15%
+          margin: 0
+          padding: 8px 5px 7px
+          background-color: $orange
+          color: white
+          font-family: $avenir-bold-family
+          font-size: 15px
+          line-height: 1em
+          text-transform: uppercase
+          border: none
+          border-radius: $radius
+          &:hover
+            background-color: darken($orange, 5%)
+      &:hover
+        h3
+          color: $copy-grey
+      &.open
+        h3
+          margin: 0
+          color: $copy-grey
+        input[type="text"]
+          cursor: text
+        &:hover
+          border-color: $medium-grey
+section#your-gofer-run
+  float: right
+  width: 300px
+  .order
+    padding: 10px 0
+    cursor: default
+    h3
+      margin: 0 0 5px
+      padding: 0
+      line-height: 1.3em
+      font-family: $avenir-regular-family
+      font-size: 14px
+    p
+      margin: 0
+      padding: 0
+      line-height: 1em
+      font-size: 12px
+      color: $dark-grey
+    &.placeholder
+      padding: 48px
+      border: 2px solid $light-grey
+      border-radius: $radius
+      p
+        font-size: 16px
+        color: $xlight-copy-grey
+        text-align: center
+  #controls
+    width: 179px
+    margin: 10px auto 0
+    &:after
+      content: ""
+      display: block
+      clear: both
+    button
+      -webkit-appearance: none
+      position: relative
+      box-sizing: border-box
+      display: block
+      float: left
+      width: 61px
+      margin: 0 0 0 -2px
+      padding: 8px 5px 7px
+      background-color: white
+      color: $medium-grey
+      font-family: $avenir-bold-family
+      font-size: 14px
+      line-height: 1em
+      border: 2px solid $medium-grey
+      cursor: pointer
+      &:first-of-type
+        margin: 0
+        border-radius: $radius 0 0 $radius
+      &:last-of-type
+        border-radius: 0 $radius $radius 0
+      &:hover
+        z-index: 1
+        border-color: $dark-grey
+        color: $copy-grey
