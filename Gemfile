@@ -14,7 +14,7 @@ gem 'state_machine'
 gem 'uglifier'
 
 group :production do
-  'pg'
+  gem 'pg'
 end
 
 group :development do
