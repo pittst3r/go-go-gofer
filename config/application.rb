@@ -60,6 +60,8 @@ module Gofer
     
     config.assets.initialize_on_precompile = false
     
+    config.assets.precompile += ['user_sessions.css']
+    
     # Enable the asset pipeline
     config.assets.enabled = true
 
