@@ -5,4 +5,4 @@
     %h3= order_ticket.description
   - else
     %h3= truncate(order_ticket.description, length: 25, omission: "...")
-  %p= "#{order_ticket.user.name} @ #{Time.zone.utc_to_local(order_ticket.created_at).strftime("%l:%M%P")}"
+  %p= "#{order_ticket.user.name} @ #{Time.zone.parse(order_ticket.created_at.to_s).strftime("%l:%M%P")}"
