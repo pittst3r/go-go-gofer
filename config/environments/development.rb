@@ -47,4 +47,6 @@ Gofer::Application.configure do
     :authentication => 'login'
   }
   
+  config.time_zone = "Eastern Time (US & Canada)"
+  
 end
