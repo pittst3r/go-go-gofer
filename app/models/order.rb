@@ -13,6 +13,10 @@ class Order < ActiveRecord::Base
     def unaccepted
       where("gofer_run_id IS NULL")
     end
+    
+    def in_organization(org_id)
+      where(organization_id: org_id)
+    end
   end
   
   def add_to_new_or_existing_gofer_run
