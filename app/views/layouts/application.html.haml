@@ -5,7 +5,7 @@
     
     %title= content_for?(:title) ? yield(:title) : "Gofer"
     
-    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" }
     
     = csrf_meta_tags
     = stylesheet_link_tag "http://fast.fonts.com/cssapi/91ad6674-bdec-48e5-81b8-41b300a00874.css", media: "all"
