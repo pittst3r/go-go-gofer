@@ -17,6 +17,10 @@ class Order < ActiveRecord::Base
     def in_organization(org_id)
       where(organization_id: org_id)
     end
+    
+    def today
+      where("created_at > ?", Time.now.beginning_of_day)
+    end
   end
   
   def add_to_new_or_existing_gofer_run

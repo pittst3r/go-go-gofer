@@ -20,11 +20,16 @@
 
   %body
     %header
-      %h1 Go Go Gofer
-      - if current_user
-        = link_to "Log Out", log_out_path, class: "log-in-out"
-      - else
-        = link_to "Log In", log_in_path, class: "log-in-out"
+      %object.logo{ data: "/assets/logo.svg", type: "image/svg+xml" }
+        %h1 Go Go Gofer
+      %object.menu{ data: "/assets/menu.svg", type: "image/svg+xml" }
+      %nav
+        %ul
+          %li 
+            - if current_user
+              = link_to "Log Out", log_out_path
+            - else
+              = link_to "Log In", log_in_path
 
     %section#content
       = yield

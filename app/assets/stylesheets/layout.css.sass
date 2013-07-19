@@ -11,33 +11,42 @@ header
   margin: 0 auto 40px
   background-color: $orange
   border-radius: 0 0 $radius $radius
-  h1
-    height: 70px
-    margin: 0
-    padding: 0
-    background: url("logo.png") 20px 50% no-repeat
-    text-indent: -99999px
-  a.log-in-out
-    display: block
-    opacity: 0
+  object.logo
     position: absolute
-    top: 16px
+    top: 21px
+    left: 20px
+  object.menu
+    position: absolute
+    width: 29px
+    height: 29px
+    top: 21px
     right: 20px
-    width: 60px
-    padding: 10px
-    line-height: 14px
+  nav
+    display: none
+    position: absolute
+    z-index: 1
+    top: 70px
+    right: 10px
+    width: 200px
+    border-top: 2px solid $dark-orange
+    border-radius: 0 0 $radius $radius
     background: $orange
-    border: 2px solid darken($orange, 10%)
-    border-radius: $radius
-    text-align: center
-    color: darken($orange, 10%)
-    text-decoration: none
-    transition: all 0.2s ease-in-out
-    &:hover
-      background: darken($orange, 2%)
-  &:hover
-    a.log-in-out
-      opacity: 1
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+      li
+        color: $dark-orange
+        font-family: $avenir-bold-family
+        font-size: 14px
+        text-transform: uppercase
+        a
+          display: block
+          padding: 10px
+          text-align: right
+          color: $dark-orange
+          &:hover
+            color: darken($dark-orange, 5%)
 
 section#content
   width: 620px
