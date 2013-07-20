@@ -9,7 +9,7 @@
 
 %section#orders.dashboard-pane
   %h2 Orders
-  .order.new
+  .order.new.closed
     %h3 New Order
     = form_for Order.new(user_id: current_user.id), remote: true do |f|
       = f.hidden_field :user_id
