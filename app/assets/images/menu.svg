@@ -5,7 +5,7 @@
 ]>
 <svg version="1.1"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	 x="0px" y="0px" width="29px" height="29px" viewBox="-1 -1 29 29" enable-background="new -1 -1 29 29" xml:space="preserve" style="cursor:pointer">
+	 x="0px" y="0px" width="29px" height="29px" viewBox="-1 -1 29 29" enable-background="new -1 -1 29 29" xml:space="preserve" style="cursor:pointer" id="menu-button">
 <defs>
 </defs>
 <path fill="#D56011" d="M24.387,27H2.613C1.169,27,0,25.829,0,24.387s1.169-2.613,2.613-2.613h21.773

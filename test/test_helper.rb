@@ -10,23 +10,26 @@ DatabaseCleaner.strategy = :truncation
 Capybara.default_driver = :poltergeist
 
 # save_and_open_page
+# page.save_screenshot('screenshot.png')
 
-class FeatureTest < MiniTest::Spec
+class FeatureTest < Minitest::Test
   include Rails.application.routes.url_helpers
   include Capybara::DSL
+  include ApplicationHelper
+  include Sorcery::TestHelpers::Rails
   Gofer::Application.load_tasks
-  register_spec_type(//, self)
+  # register_spec_type(//, self)
   
-  before do
+  def setup
     Rake::Task["db:seed"].tap(&:reenable).invoke
   end
-  after do
+  
+  def teardown
     Capybara.reset_sessions!
     DatabaseCleaner.clean
   end
+  
 end
-
-# Turn.config.format = :outline
 
 class String
   def title_case

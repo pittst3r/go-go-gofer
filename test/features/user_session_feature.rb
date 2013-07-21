@@ -1,49 +1,44 @@
 require "test_helper"
 
-describe "User Session" do
-  include ApplicationHelper
+class UserSession < FeatureTest
   
-  before do
+  def setup
+    super
     @user = FactoryGirl.create(:user)
-    visit root_path
   end
   
-  it "logs in user" do
-    click_link "Log In"
+  def test_user_logging_in
+    visit log_in_path
     fill_in "username", with: "test@example.com"
     fill_in "password", with: "password"
     click_button "Log In"
-    page.text.must_include "Log Out"
-  end
-      
-  it "rejects login with invalid email" do
-    click_link "Log In"
-    fill_in "username", with: "fail@example.com"
-    fill_in "password", with: "password"
-    click_button "Log In"
-    page.text.must_include "Login failed."
+    assert_equal dashboard_path, current_path
   end
   
-  it "rejects login with invalid password" do
-    click_link "Log In"
+  def test_user_logging_in_with_invalid_credentials
+    visit log_in_path
     fill_in "username", with: "test@example.com"
-    fill_in "password", with: "fail"
+    fill_in "password", with: "asdf"
     click_button "Log In"
-    page.text.must_include "Login failed."
+    refute_equal dashboard_path, current_path
   end
   
-  it "logs out user" do
-    click_link "Log In"
+  def test_user_logging_out
+    visit log_in_path
     fill_in "username", with: "test@example.com"
     fill_in "password", with: "password"
     click_button "Log In"
-    page.text.must_include "Log Out"
-    click_link "Log Out"
-    page.text.must_include "Log In"
+    visit log_out_path
+    assert_equal log_in_path, current_path
   end
   
-  it "resets user's password" do
-    skip
+  def test_user_forgot_password
+    visit log_in_path
+    click_link "Forgot password?"
+    fill_in "username", with: "test@example.com"
+    click_button "Reset Password"
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal @user.email, mail.to[0]
   end
   
 end

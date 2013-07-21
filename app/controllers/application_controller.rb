@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   
   def current_organization
     organization = current_user.organizations.first
-    raise NilObject, "'organization_id' must not be an Integer." if organization.nil?
     return organization
   end
   

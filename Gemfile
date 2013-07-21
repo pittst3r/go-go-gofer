@@ -8,6 +8,7 @@ gem 'coffee-script'
 gem 'haml-rails'
 gem 'hashie'
 gem 'jquery-rails'
+gem 'rake'
 gem 'sass-rails'
 gem 'sorcery'
 gem 'state_machine'
@@ -29,7 +30,6 @@ group :development, :test do
   gem 'launchy'
   gem 'minitest'
   gem 'poltergeist'
-  gem 'rake'
   gem 'sqlite3', platform: [:ruby]
   # gem 'turn'
 end
