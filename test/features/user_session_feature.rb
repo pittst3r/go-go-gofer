@@ -1,11 +1,6 @@
 require "test_helper"
 
-class UserSession < FeatureTest
-  
-  def setup
-    super
-    @user = FactoryGirl.create(:user)
-  end
+class UserSessionFeature < FeatureTest
   
   def test_user_logging_in
     visit log_in_path

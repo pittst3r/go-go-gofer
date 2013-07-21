@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_filter :require_login
   before_filter :add_current_organization_to_params, only: :create
-  # after_filter :send_new_order_notifications, only: :create
+  after_filter :send_new_order_notifications, only: :create
   
   def index
     @orders = Order.all

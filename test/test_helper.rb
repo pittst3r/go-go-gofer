@@ -5,6 +5,7 @@ require "minitest/autorun"
 require "capybara/rails"
 require "capybara/poltergeist"
 require "database_cleaner"
+require "helpers"
 
 DatabaseCleaner.strategy = :truncation
 Capybara.default_driver = :poltergeist
@@ -16,12 +17,13 @@ class FeatureTest < Minitest::Test
   include Rails.application.routes.url_helpers
   include Capybara::DSL
   include ApplicationHelper
-  include Sorcery::TestHelpers::Rails
+  include SessionHelpers
   Gofer::Application.load_tasks
   # register_spec_type(//, self)
   
   def setup
     Rake::Task["db:seed"].tap(&:reenable).invoke
+    @user = FactoryGirl.create(:user)
   end
   
   def teardown

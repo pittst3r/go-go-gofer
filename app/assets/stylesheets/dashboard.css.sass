@@ -21,7 +21,6 @@ section#orders
     background: white
     transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out
     a[data-delete]
-      display: none
       position: absolute
       right: 10px
       font-size: 12px
@@ -43,8 +42,6 @@ section#orders
       color: $dark-grey
     &:hover
       border-color: $dark-grey
-      a[data-delete]
-        display: block
       h3
         color: black
     &.active

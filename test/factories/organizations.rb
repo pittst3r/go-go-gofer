@@ -2,8 +2,7 @@
 
 FactoryGirl.define do
   
-  factory :order do
-    description "coffee"    
+  factory :organization do
+    name Faker::Company.name
   end
-  
 end
