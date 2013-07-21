@@ -2,6 +2,10 @@
 
 ## Features To-Do
 
-- Email notifications
-  - New order within company
+- Flash notifications
+- Settings
+  - Email notifications toggle
+  - Name, email, password change
+- New feature notifications
 - Last call
+
