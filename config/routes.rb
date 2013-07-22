@@ -17,13 +17,16 @@ Gofer::Application.routes.draw do
       put :accept
     end
   end
-  resources :gofer_runs, only: [] do
+  resources :gofer_runs do
     member do
       put :clear
       put :close
     end
   end
   
-  match '/dashboard' => 'dashboard#show', as: 'dashboard'
+  get '/dashboard' => 'dashboard#show', as: 'dashboard'
+  
+  get '/settings' => 'settings#edit', as: 'settings'
+  put '/settings' => 'settings#update'
 
 end
