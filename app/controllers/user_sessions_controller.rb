@@ -6,16 +6,19 @@ class UserSessionsController < ApplicationController
   
   def create
     if @user = login(params[:username], params[:password])
-      redirect_back_or_to dashboard_path, :notice => 'Login successful.'
+      flash[:notice] = "Welcome back, #{current_user.first_name}."
+      redirect_to dashboard_path
     else
-      flash.now[:alert] = "Login failed."
+      flash.now[:notice] = "Login failed."
       render action: :new
     end
   end
   
   def destroy
+    user = current_user
     logout
-    redirect_back_or_to root_path, :notice => 'Logout successful.'
+    flash[:notice] = "Later, #{user.first_name}."
+    redirect_to log_in_path
   end
   
 end

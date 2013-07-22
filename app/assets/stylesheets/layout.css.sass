@@ -47,7 +47,21 @@ header
           color: $dark-orange
           &:hover
             color: darken($dark-orange, 5%)
-
+  .flash
+    position: absolute
+    top: 70px
+    left: 20px
+    right: 20px
+    padding: 5px
+    background: $light-grey
+    border-radius: 0 0 $radius $radius
+    border: 2px solid $medium-grey
+    border-top-width: 0
+    p
+      margin: 0
+      font-family: $avenir-bold-family
+      color: $light-copy-grey
+    
 section#content
   width: 620px
   margin: 0 auto
