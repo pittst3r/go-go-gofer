@@ -1,8 +1,28 @@
 %h1 Your Settings
 
-= form_for current_user, url: settings_path, method: :put do |f|
-  %h4= f.label :name
-  %p= f.text_field :name
-  %h4= f.label :email
-  %p= f.email_field :email
-  %p= submit_tag "Update"
+%fieldset
+  %h2 Personal Information
+  = form_for current_user, url: settings_path, method: :put do |f|
+    %p
+      = f.label :name
+      = f.text_field :name
+    %p
+      = f.label :email
+      = f.email_field :email
+    %p= submit_tag "Update Personal Information"
+
+%fieldset
+  %h2 Preferences
+  = form_for current_user, url: settings_path, method: :put do |f|
+    = f.fields_for :preferences do |pref|
+      %p
+        %label
+          = pref.check_box :value, {}, "true", "false"
+          = pref.object.name.humanize
+    %p= submit_tag "Update Preferences"
+
+%fieldset
+  %h2 Organizations
+  %ul
+    - current_user.organizations.each do |org|
+      %li= org.name

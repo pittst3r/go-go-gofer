@@ -33,7 +33,15 @@ class OrdersController < ApplicationController
   
   def send_new_order_notifications
     @order.organization.users.each do |recipient|
-      UserMailer.new_order_notification(@order, recipient).deliver unless recipient.id == @order.user_id
+      UserMailer.new_order_notification(@order, recipient).deliver if user_should_receive_notification(recipient)
+    end
+  end
+  
+  def user_should_receive_notification(recipient)
+    if recipient.id != @order.user_id && recipient.order_email_notification_preference
+      return true
+    else
+      false
     end
   end
   

@@ -1,10 +1,15 @@
 Gofer::Application.routes.draw do
   
+  resources :preferences
+
+
+  root to: redirect('/dashboard')
+  
+  get 'pages/styles' => 'pages#styles_demo'
+  
   get "password_resets/create"
   get "password_resets/edit"
   get "password_resets/update"
-
-  root to: redirect('/dashboard')
   
   resources :password_resets
   resources :user_sessions
