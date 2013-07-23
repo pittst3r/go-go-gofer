@@ -16,11 +16,6 @@ class User < ActiveRecord::Base
     preferences.create name: name.to_s, value: value.to_s
   end
   
-  def update_preference(name, value)
-    preferences.where(name: name.to_s).first.value = value.to_s
-    self.save
-  end
-  
   def order_email_notification_preference
     preferences.where(name: "order_email_notification").first.value_in_boolean
   end
