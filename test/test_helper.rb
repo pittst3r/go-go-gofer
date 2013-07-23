@@ -2,6 +2,7 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../config/environment", __FILE__)
 require File.expand_path("../../app/helpers/application_helper.rb", __FILE__)
 require "minitest/autorun"
+require "minitest/pride"
 require "capybara/rails"
 require "capybara/poltergeist"
 require "database_cleaner"
@@ -18,12 +19,13 @@ class FeatureTest < Minitest::Test
   include Capybara::DSL
   include ApplicationHelper
   include SessionHelpers
+  
   Gofer::Application.load_tasks
-  # register_spec_type(//, self)
   
   def setup
     Rake::Task["db:seed"].tap(&:reenable).invoke
     @user = FactoryGirl.create(:user)
+    @user.set_default_preferences
   end
   
   def teardown

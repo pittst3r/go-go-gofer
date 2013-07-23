@@ -17,7 +17,7 @@
     = f.fields_for :preferences do |pref|
       %p
         %label
-          = pref.check_box :value, {}, "true", "false"
+          = pref.check_box :value, { id: pref.object.name }, "true", "false"
           = pref.object.name.humanize
     %p= submit_tag "Update Preferences"
 

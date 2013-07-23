@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
     if recipient.id != @order.user_id && recipient.order_email_notification_preference
       return true
     else
-      false
+      return false
     end
   end
   
