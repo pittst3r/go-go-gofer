@@ -20,9 +20,9 @@
 
   %body
     %header
-      %object.logo{ data: "/assets/logo.svg", type: "image/svg+xml" }
-        %h1 Go Go Gofer
-      %object.menu{ data: "/assets/menu.svg", type: "image/svg+xml" }
+      %a{ href: root_path }
+        %img.logo{ src: "/assets/logo.svg", alt: "Go Go Gofer" }
+      %img.menu{ src: "/assets/menu.svg", alt: "Menu" }
       %nav
         %ul
           - if current_user
