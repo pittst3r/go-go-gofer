@@ -11,3 +11,7 @@ $("#orders.dashboard-pane .order").fadeOut(200, function() {
   $("#orders.dashboard-pane").append($order);
   $order.slideDown(100);
 <% end %>
+
+<% if Rails.env.production? %>
+  mixpanel.track("run close");
+<% end %>

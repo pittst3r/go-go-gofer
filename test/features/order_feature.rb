@@ -29,7 +29,7 @@ class OrderFeature < FeatureTest
   def test_place_new_order_when_other_user_has_notifications_turned_off
     @random_user = FactoryGirl.create(:random_user)
     @organization.users << @random_user
-    @random_user.update_preference :order_email_notification, false
+    @random_user.update_preference "order_email_notification", false
     order_description = "coffee"
     visit dashboard_path
     find(".order.new").click
@@ -40,7 +40,7 @@ class OrderFeature < FeatureTest
     assert_includes page.text, @user.name
     assert_equal "false", @random_user.preferences.where(name: "order_email_notification").first.value
     mail = ActionMailer::Base.deliveries.last
-    assert_equal 0, ActionMailer::Base.deliveries.count
+    refute_equal @random_user.email, mail.to[0] if mail
   end
   
   def test_delete_order

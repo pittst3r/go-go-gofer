@@ -13,3 +13,7 @@ setTimeout(function() {
     $order.fadeIn(200);
   <% end %>
 }, 200);
+
+<% if Rails.env.production? %>
+  mixpanel.track("run clear");
+<% end %>

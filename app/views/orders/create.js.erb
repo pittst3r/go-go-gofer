@@ -1,1 +1,5 @@
 $(".order.new").after("<%= raw(escape_javascript(render partial: 'order_ticket', locals: { order_ticket: @order })) %>");
+
+<% if Rails.env.production? %>
+  mixpanel.track("order create", { "new order description": "<%= @order.description %>" });
+<% end %>

@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   end
   
   def add_preference(k, v)
-    preferences.create(name: k, value: v) unless preferences.where(name: k).count >= 1
+    preferences.create(name: k, value: v) if preferences.where(name: k).count == 0
   end
   
   def update_preference(k, v)
@@ -27,7 +27,15 @@ class User < ActiveRecord::Base
   end
   
   def order_email_notification_preference
-    preferences.where(name: "order_email_notification").first.value_in_boolean
+    preferences.where(name: "order_email_notification").first.value
+  end
+  
+  def wants_order_email_notifications
+    if order_email_notification_preference == "true"
+      return true
+    else
+      return false
+    end
   end
   
   def set_default_preferences

@@ -8,9 +8,7 @@ require "capybara/poltergeist"
 require "database_cleaner"
 require "helpers"
 
-DatabaseCleaner.strategy = :truncation
-Capybara.default_driver = :poltergeist
-
+# Some helpers:
 # save_and_open_page
 # page.save_screenshot('screenshot.png')
 
@@ -20,10 +18,14 @@ class FeatureTest < Minitest::Test
   include ApplicationHelper
   include SessionHelpers
   
+  DatabaseCleaner.strategy = :truncation
+  Capybara.default_driver = :poltergeist
   Gofer::Application.load_tasks
   
+  Rake::Task["db:test:prepare"].invoke
+  
   def setup
-    Rake::Task["db:seed"].tap(&:reenable).invoke
+    # Rake::Task["db:seed"].tap(&:reenable).invoke
     @user = FactoryGirl.create(:user)
     @user.set_default_preferences
   end
@@ -31,6 +33,7 @@ class FeatureTest < Minitest::Test
   def teardown
     Capybara.reset_sessions!
     DatabaseCleaner.clean
+    ActionMailer::Base.deliveries.clear
   end
   
 end

@@ -1,7 +1,7 @@
 class Preference < ActiveRecord::Base
   attr_accessible :name, :value
   
-  before_save :convert_value_to_string
+  before_save :convert_value_to_string, on: :create
   
   DEFAULT_PREFERENCES = {
     order_email_notification: true
@@ -10,7 +10,7 @@ class Preference < ActiveRecord::Base
   def value_in_boolean
     if value == "true"
       return true
-    elsif value == "false"
+    else
       return false
     end
   end

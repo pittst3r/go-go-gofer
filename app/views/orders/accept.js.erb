@@ -9,3 +9,6 @@ if ( $("#controls").length == 0 ) {
   $("#your-gofer-run").append($controls);
   $controls.slideDown(100);
 }
+<% if Rails.env.production? %>
+  mixpanel.track("order accept", { "gofer email": "<%=@gofer_run.user.email %>"});
+<% end %>
